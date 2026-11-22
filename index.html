@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Silktone, Joel Thomas Whitley | Guitarist, Bassist, Songwriter, Producer · Los Angeles</title>
+<meta name="description" content="Silktone is Joel Thomas Whitley, a guitarist, bassist, songwriter, producer and multi-instrumentalist from Los Angeles. He has toured and recorded with Stevie Wonder, Thundercat, and Lauryn Hill. Sessions, touring, production and guitar lessons." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#FFFFFF; --bg-2:#F7F9FA;
+    --ink:#141E25; --ink-2:#3A4A54; --muted:#5B6D77;
+    --turq:#5F828D; --turq-deep:#334E57;
+    --line:rgba(20,30,37,.16);
+    --dark-panel:#0E1A22; --dark-ink:#EDF4F7;
+    --warm:#F6EFE1; --warm-line:rgba(122,90,40,.20);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0D151B; --bg-2:#111C24;
+      --ink:#F2F6F8; --ink-2:#CBD8DE; --muted:#A9BCC5;
+      --turq:#9BBEC6; --turq-deep:#C2D9DF;
+      --line:rgba(237,244,247,.20);
+      --warm:#1E1811; --warm-line:rgba(240,220,180,.16);
+      color-scheme:dark;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  button,select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2.75rem}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  @media(min-width:760px){.wrap{padding:0 36px}}
+  .serif{font-family:Newsreader,Georgia,serif}
+
+  /* Header: transparent over the full-bleed hero (dark lettering on the light portrait,
+     fixed dark tone so it stays readable in light and dark mode alike),
+     solid bar once scrolled past it, so every word stays readable in both states */
+  header{position:fixed;top:0;left:0;right:0;z-index:60;background:transparent;color:#141E25;border-bottom:1px solid transparent;transition:background .35s ease,color .35s ease,box-shadow .35s ease,border-color .35s ease}
+  header .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1280px;margin:0 auto;padding:16px 22px}
+  @media(min-width:760px){header .bar{padding:18px 36px}}
+  header.scrolled{background:var(--bg);color:var(--ink);border-bottom:1px solid var(--line);box-shadow:0 1px 10px rgba(20,30,37,.08)}
+  header:not(.scrolled) .brand{color:#141E25}
+  header:not(.scrolled) .navlinks a{color:rgba(20,30,37,.82)}
+  header:not(.scrolled) .navlinks a:hover,header:not(.scrolled) .navlinks a.active{color:#141E25;border-bottom-color:#141E25}
+  header.menu-open{background:var(--bg);color:var(--ink);border-bottom:1px solid var(--line);box-shadow:0 1px 10px rgba(20,30,37,.08)}
+  header.menu-open .brand{color:var(--ink)}
+  header:not(.scrolled) .menu-btn{color:#141E25;border-color:rgba(20,30,37,.85)}
+  header:not(.scrolled) .menu-btn:hover{background:#141E25;color:#FFFFFF}
+  header.menu-open:not(.scrolled) .menu-btn{color:var(--ink);border-color:var(--ink)}
+  .brand{font-family:Newsreader,Georgia,serif;font-size:21px;font-weight:500;letter-spacing:.22em;text-decoration:none;color:var(--ink)}
+  .navlinks{display:none;gap:20px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;flex-wrap:wrap;justify-content:flex-end;margin-left:auto}
+  .navlinks a{text-decoration:none;color:var(--ink-2);padding:10px 2px;border-bottom:1px solid transparent}
+  .navlinks a:hover,.navlinks a.active{color:var(--ink);border-bottom-color:var(--ink)}
+  @media(min-width:1020px){.navlinks{display:flex}}
+  /* Menu button: phones and tablets, where the full row of links does not fit */
+  .menu-btn{display:inline-flex;align-items:center;gap:10px;margin-left:auto;background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:3px;padding:10px 16px;min-height:44px;font-family:inherit;font-weight:600;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+  .menu-btn:hover{background:var(--ink);color:var(--bg)}
+  .menu-lines{display:inline-flex;flex-direction:column;gap:4px}
+  .menu-lines span{display:block;width:18px;height:2px;background:currentColor}
+  @media(min-width:1020px){.menu-btn{display:none}}
+  /* Drop-down menu panel under the bar, small screens only */
+  .mobile-nav{display:none;border-top:1px solid var(--line);padding:8px 22px 14px}
+  header.menu-open .mobile-nav{display:block}
+  @media(min-width:760px){.mobile-nav{padding-left:36px;padding-right:36px}}
+  @media(min-width:1020px){.mobile-nav{display:none!important}}
+  .mobile-nav a{display:block;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);padding:13px 2px;border-bottom:1px solid var(--line)}
+  .mobile-nav a:last-child{border-bottom:0}
+  .mobile-nav a:hover,.mobile-nav a.active{color:var(--ink)}
+
+  section[id]{scroll-margin-top:88px}
+
+  /* HERO: full bleed black coat portrait. The wording sits over the photo:
+     Joel Thomas Whitley (the heading; Silktone is in the header above),
+     his roles, Los Angeles, and two
+     quiet buttons. On wide screens it sits on the empty wall to the left of
+     Joel, vertically centred, so it never touches his face or hair. On
+     phones the wall is too narrow, so it sits low over the black coat,
+     below the face, in light lettering. Framing keeps the head and
+     shoulders whole at every width: anchored near the top on wide
+     screens, and centred on the face on tall phones */
+  /* The portrait file is only 860px wide, so on wide screens it is shown at
+     its natural size (never wider than 860px, never taller than 1075px),
+     set against the warm wall tone instead of stretched full bleed */
+  .hero{position:relative;width:100%;overflow:hidden;isolation:isolate;background:#EFE7D6;display:flex;justify-content:flex-end;min-height:min(1075px,100svh)}
+  /* Readability scrim behind the hero wording: a soft light wash on the
+     wall side (desktop) so the dark lettering never blends into the wall
+     or its shadow. It fades out well before Joel's face, so nothing sits
+     over him. On phones the scrim flips to a dark wash rising from the
+     foot of the frame (see the phone block below). */
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(248,243,230,.97) 0%,rgba(248,243,230,.92) 34%,rgba(248,243,230,.58) 52%,rgba(248,243,230,0) 68%)}
+  /* A touch of warmth at the foot of the portrait: the black coat softens into a
+     warm ivory instead of cutting off hard, and the band below picks the same
+     tone up, so the first screen feels warm and finished, not bare */
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:44%;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(246,239,225,0) 0%,rgba(246,239,225,0) 20%,color-mix(in srgb,var(--warm) 16%,transparent) 48%,color-mix(in srgb,var(--warm) 46%,transparent) 72%,color-mix(in srgb,var(--warm) 82%,transparent) 90%,var(--warm) 100%)}
+  @media (prefers-color-scheme: dark){.hero::after{background:linear-gradient(to bottom,rgba(30,24,17,0) 0%,rgba(30,24,17,0) 20%,color-mix(in srgb,var(--warm) 16%,transparent) 48%,color-mix(in srgb,var(--warm) 46%,transparent) 72%,color-mix(in srgb,var(--warm) 82%,transparent) 90%,var(--warm) 100%)}}
+  .hero-photo{position:relative;margin:0;z-index:0;flex:0 0 auto;height:min(1075px,100svh)}
+  .hero-photo img{height:100%;width:auto;max-width:860px;display:block}
+  /* Hero lettering: fixed dark tones, because it sits on the light
+     wall of the portrait in light and dark mode alike */
+  .hero-copy{position:absolute;z-index:2;left:clamp(22px,5vw,72px);top:50%;transform:translateY(-50%);max-width:min(40vw,540px);color:#0B161D;text-align:left}
+  /* No big SILKTONE title in the hero: Silktone already sits in the header
+     at the very top, so the hero leads with his name instead. His name is
+     the hero heading, set stately and near-black so it reads clearly
+     against the wall and its shadow, with a soft light halo behind it */
+  .hero-name{font-family:Newsreader,Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(34px,4.2vw,54px);line-height:1.08;letter-spacing:.01em;color:#0B161D;margin:0 0 6px;text-shadow:0 1px 0 rgba(255,255,255,.8),0 2px 14px rgba(248,243,230,.98),0 0 3px rgba(248,243,230,.95)}
+  .hero-roles{font-size:13.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;line-height:1.9;color:#162832;margin:20px 0 0;max-width:42ch;text-shadow:0 1px 10px rgba(248,243,230,.9)}
+  .hero-roles span{display:block}
+  .hero-loc{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#0B161D;margin:22px 0 0;padding-top:20px;border-top:1px solid rgba(11,22,29,.55);display:inline-block;text-shadow:0 1px 10px rgba(248,243,230,.9)}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .hero-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:600;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;padding:14px 24px;border-radius:3px;min-height:50px;border:1px solid #141E25;color:#141E25;background:transparent}
+  .hero-btn.solid{background:#141E25;color:#F7F2E7}
+  .hero-btn:hover{opacity:.82}
+  @media(max-width:759px){
+    /* Phones are narrower than the file itself, so the portrait fills the
+       frame there without any enlargement */
+    .hero{display:block;min-height:100svh}
+    .hero-photo{position:absolute;inset:0;height:auto}
+    .hero-photo img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:76% 10%}
+    /* Dark scrim rising from the foot of the frame, behind the wording
+       that sits low over the black coat, so the light lettering stands
+       out sharply and never blends into the coat */
+    .hero::before{background:linear-gradient(to top,rgba(7,13,18,.96) 0%,rgba(7,13,18,.88) 38%,rgba(7,13,18,.52) 58%,rgba(7,13,18,0) 78%)}
+    .hero::after{height:18%}
+    .hero-copy{left:22px;right:22px;top:auto;bottom:8%;transform:none;max-width:none;color:#FFFFFF}
+    .hero-name{color:#FFFFFF;font-size:clamp(31px,9vw,40px);font-weight:600;margin-bottom:4px;text-shadow:0 2px 10px rgba(0,0,0,.95),0 1px 3px rgba(0,0,0,1),0 0 22px rgba(0,0,0,.65)}
+    .hero-roles{color:#FFFFFF;margin-top:14px;max-width:none;text-shadow:0 1px 8px rgba(0,0,0,.95),0 0 16px rgba(0,0,0,.7)}
+    .hero-loc{color:#FFFFFF;border-top-color:rgba(255,255,255,.6);margin-top:18px;padding-top:16px;text-shadow:0 1px 8px rgba(0,0,0,.95)}
+    .hero-ctas{margin-top:24px}
+    .hero-btn{border-color:rgba(247,242,231,.85);color:#F7F2E7}
+    .hero-btn.solid{background:#F7F2E7;border-color:#F7F2E7;color:#141E25}
+  }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:600;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;padding:15px 28px;border-radius:3px;min-height:52px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer}
+  .btn.solid{background:var(--ink);color:var(--bg)}
+  .btn.accent{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  @media(prefers-color-scheme:dark){.btn.accent{background:var(--ink);border-color:var(--ink);color:var(--bg)}}
+  .btn:hover{opacity:.82}
+
+  /* Proof strip: warm ivory band, bled full width, carrying the warmth down
+     from the hero so the portrait, the band and the PRS photo below read as
+     one composed opening */
+  .proof{background:var(--warm);box-shadow:0 0 0 100vmax var(--warm);clip-path:inset(0 -100vmax);border-bottom:1px solid var(--warm-line);padding:38px 22px}
+  @media(min-width:760px){.proof{padding-left:36px;padding-right:36px}}
+  .proof-in{font-family:Newsreader,Georgia,serif;font-size:clamp(17px,2.4vw,22px);line-height:1.6;text-align:center;color:var(--ink-2);margin:0}
+
+  section{padding:112px 0}
+  @media(max-width:759px){section{padding:76px 0}}
+  .sec-head{text-align:center;max-width:720px;margin:0 auto 60px}
+  .sec-label{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+  h2{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(38px,5.6vw,56px);line-height:1.08;letter-spacing:.01em;margin:0}
+  h2 em{font-style:italic;color:var(--ink)}
+  .sec-sub{font-size:16.5px;line-height:1.75;color:var(--ink-2);margin:20px auto 0;max-width:56ch}
+  .alt{background:var(--bg-2)}
+  /* Extra breathing room above News (below the Latest Recording photo) and
+     above Lessons (below the Credits note), matching the other sections */
+  #news{padding-top:156px}
+  #lessons{padding-top:156px}
+  @media(max-width:759px){#news{padding-top:110px}#lessons{padding-top:110px}}
+
+  /* Latest recording */
+  .latest{display:grid;gap:34px;align-items:center}
+  @media(min-width:900px){.latest{grid-template-columns:1.05fr .95fr;gap:60px}}
+  .latest img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:1px solid var(--line)}
+  .latest .outnow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+  .latest h2{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(32px,4.4vw,48px);line-height:1.08;margin:0 0 14px}
+  .latest p{font-size:16.5px;line-height:1.75;color:var(--ink-2);margin:0 0 14px}
+  .latest .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  /* One caption style everywhere: quiet, uniform, set away from the photo */
+  .cap{font-size:14.5px;color:var(--muted);margin-top:12px;line-height:1.55;font-weight:400}
+
+  /* News: simple dated rows, same borders and type as Credits and Live dates */
+  .news-list{border-top:1px solid var(--ink);max-width:880px;margin:0 auto}
+  .nrow{display:grid;grid-template-columns:64px 1fr;gap:6px 20px;padding:24px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+  @media(min-width:760px){.nrow{grid-template-columns:90px 1fr;gap:6px 28px}}
+  .nrow .nyear{font-size:12.5px;font-weight:600;letter-spacing:.14em;color:var(--muted)}
+  .nrow .nwhat{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(20px,2.8vw,25px);line-height:1.35;color:var(--ink)}
+  .nrow .nwhat em{font-style:italic}
+
+  /* Live: tour and live-show photos (same grid and caption treatment as the Gallery), plus booking rows */
+  .live-grid{display:grid;gap:48px 36px;max-width:920px;margin:0 auto 56px;align-items:start}
+  @media(min-width:760px){.live-grid{grid-template-columns:repeat(2,1fr);gap:56px 40px}}
+  .live-grid figure{margin:0}
+  /* Every Live photo cropped to the same 4:3 shape, so the rows sit even */
+  .live-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%;display:block;border:1px solid var(--line)}
+  .live-grid figcaption{font-family:Newsreader,Georgia,serif;font-size:17px;font-weight:400;color:var(--ink);margin-top:14px;line-height:1.5}
+  .live-grid figcaption span{display:block;font-family:Archivo,sans-serif;font-size:14.5px;font-weight:400;color:var(--muted);margin-top:5px;line-height:1.6}
+  .dates{border-top:1px solid var(--ink);max-width:880px;margin:0 auto}
+  .drow{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:26px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+  @media(min-width:760px){.drow{grid-template-columns:170px 1fr auto}}
+  .drow .when{font-size:11.5px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;color:var(--muted)}
+  .drow .what{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(21px,3vw,26px);line-height:1.25}
+  .drow .where{grid-column:1/-1;font-size:15px;color:var(--ink-2);line-height:1.6}
+  @media(min-width:760px){.drow .where{grid-column:2}}
+  .drow .status{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);padding:7px 12px;border-radius:3px;white-space:nowrap;color:var(--muted);text-decoration:none}
+  a.status:hover{color:var(--ink);border-color:var(--ink)}
+  .letter{max-width:560px;margin:64px auto 0;text-align:center}
+  .letter h3{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:30px;margin:0 0 10px}
+  .letter p{font-size:15.5px;line-height:1.7;color:var(--ink-2);margin:0 0 20px}
+  .letter label{font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px;text-align:left}
+  .letter input{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--ink);font-size:16px;margin-bottom:12px;font-family:inherit}
+  .letter .btn{width:100%}
+  .letter .note{font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--muted);font-size:14.5px;margin-top:12px}
+
+  /* Gallery: tabbed, decluttered, one category at a time, larger photos */
+  .gallery-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 44px}
+  .watch-grid{display:grid;gap:48px 36px;max-width:920px;margin:0 auto;align-items:start}
+  @media(min-width:760px){.watch-grid{grid-template-columns:repeat(2,1fr);gap:56px 40px}}
+  .watch-grid figure{margin:0}
+  .watch-grid figure.hide{display:none}
+  /* Every Gallery photo cropped to the same 4:3 shape, so the rows sit even */
+  .watch-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 25%;display:block;border:1px solid var(--line)}
+  /* The standing gold Moollon sparkle PB portrait is a tall photo: it gets a
+     portrait crop anchored to the top, so Joel's face and the bass headstock
+     both stay in frame instead of being cut by the standard 4:3 crop */
+  .watch-grid img.crop-face-headstock{aspect-ratio:4/5;object-position:50% 0%}
+  .watch-grid figcaption{font-family:Newsreader,Georgia,serif;font-size:17px;font-weight:400;color:var(--ink);margin-top:14px;line-height:1.5}
+  .watch-grid figcaption span{display:block;font-family:Archivo,sans-serif;font-size:14.5px;font-weight:400;color:var(--muted);margin-top:5px;line-height:1.6}
+  .center-cta{text-align:center;margin-top:44px}
+
+  /* Bio */
+  .bio{display:grid;gap:38px}
+  @media(min-width:900px){.bio{grid-template-columns:1.2fr .8fr;gap:64px;align-items:start}}
+  .bio p{font-size:17.5px;line-height:1.85;color:var(--ink);margin:0 0 20px;max-width:62ch}
+  /* Bio and Lineage text sits on a solid panel over the painting, so the
+     paragraphs stay easy to read */
+  .bio-panel{background:var(--bg);border:1px solid var(--line);padding:30px 32px}
+  @media(max-width:759px){.bio-panel{padding:22px 20px}}
+  .bio p:first-of-type{font-size:19.5px;color:var(--ink)}
+  .bio figure{margin:0}
+  .bio figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+  .glance{border-top:1px solid var(--ink);margin-top:34px}
+  .glance div{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.6}
+  .glance dt{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+  .glance dd{margin:0;color:var(--ink-2)}
+  .glance dd strong{color:var(--ink)}
+  .lineage{margin-top:96px}
+  .lineage-grid{display:grid;gap:34px;margin-top:44px}
+  @media(min-width:900px){.lineage-grid{grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}}
+  .lineage figure{margin:0}
+  /* The Spanky photo file is 640px wide: never display it wider than that */
+  .lineage figure img{width:100%;max-width:640px;height:auto;display:block;margin:0 auto;border:1px solid var(--line)}
+  .teacher{padding:22px 0;border-bottom:1px solid var(--line)}
+  .teacher:first-child{padding-top:0}
+  .teacher:last-child{border-bottom:0}
+  .teacher h3{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:24px;margin:0 0 8px}
+  .teacher h3 span{font-size:16px;color:var(--muted);font-style:italic}
+  .teacher p{font-size:16px;line-height:1.75;color:var(--ink-2);margin:0}
+
+  /* Painting portrait: the ink painting clearly visible as the background behind Bio and Contact,
+     under a light wash so the dark ink text on top stays easy to read */
+  #bio,#contact{position:relative;isolation:isolate;overflow:hidden}
+  #bio::before,#contact::before{content:"";position:absolute;inset:0;background-size:cover;background-position:center 22%;background-repeat:no-repeat;pointer-events:none;z-index:0}
+  #bio::before{background-image:linear-gradient(color-mix(in srgb,var(--bg-2) 84%,transparent),color-mix(in srgb,var(--bg-2) 90%,transparent)),url(assets/painting-portrait.jpg)}
+  /* The painting behind the Bio is softened and darkened a step further */
+  #bio::before{filter:blur(6px) brightness(.94)}
+  #contact::before{background-image:linear-gradient(color-mix(in srgb,var(--bg) 68%,transparent),color-mix(in srgb,var(--bg) 78%,transparent)),url(assets/painting-portrait.jpg);background-position:center 26%}
+  #bio>.wrap{position:relative;z-index:1}
+  #contact>*{position:relative;z-index:1}
+  @media(max-width:759px){
+    #bio::before,#contact::before{background-position:center 16%}
+  }
+
+  /* Credits */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 34px}
+  .chip{border:1px solid var(--line);background:transparent;color:var(--ink-2);border-radius:3px;padding:11px 20px;font-weight:500;font-size:13px;letter-spacing:.06em;cursor:pointer;min-height:44px;font-family:inherit}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .credits{border-top:1px solid var(--ink);max-width:920px;margin:0 auto}
+  .crow{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:24px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+  @media(min-width:760px){.crow{grid-template-columns:1.1fr 1.3fr auto}}
+  .crow .artist{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(21px,2.8vw,27px);line-height:1.2}
+  .crow .work{font-size:15px;color:var(--ink-2);line-height:1.6}
+  .crow .year{font-size:12.5px;font-weight:600;letter-spacing:.10em;color:var(--muted);white-space:nowrap}
+  .crow.hide{display:none}
+  .crow-touring .work{line-height:1.7}
+  .tour-note{display:block;margin-top:8px;font-size:14px;color:var(--muted);line-height:1.6}
+  @media(max-width:759px){.crow-touring .artist{grid-column:1;grid-row:1}.crow-touring .year{grid-column:2;grid-row:1}.crow-touring .work{grid-column:1/-1;grid-row:2}}
+  .credits-note{text-align:center;font-size:14.5px;color:var(--muted);margin-top:22px}
+
+  /* Store */
+  .store-grid{display:grid;gap:0;border-top:1px solid var(--ink)}
+  @media(min-width:820px){.store-grid{grid-template-columns:1fr 1fr}}
+  .product{padding:30px 4px;border-bottom:1px solid var(--line)}
+  @media(min-width:820px){.product{padding:34px 30px 34px 4px}.product:nth-child(even){padding-left:30px;padding-right:4px;border-left:1px solid var(--line)}}
+  .product .k{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .product h3{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:27px;margin:0 0 10px;line-height:1.15}
+  .product p{font-size:15.5px;line-height:1.7;color:var(--ink-2);margin:0 0 12px}
+  .product .avail{font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--ink-2);font-size:15.5px;margin:0 0 8px}
+  .product a{font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:10px 0;display:inline-block;border-bottom:1px solid var(--ink)}
+  .store-img{width:100%;height:auto;display:block;margin-top:54px;border:1px solid var(--line)}
+
+  /* Lessons */
+  .lessons-grid{display:grid;gap:34px}
+  @media(min-width:900px){.lessons-grid{grid-template-columns:repeat(3,1fr);gap:40px}}
+  .lesson{border-top:1px solid var(--ink);padding-top:22px}
+  .lesson h3{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:25px;margin:0 0 10px;line-height:1.2}
+  .lesson p{font-size:15.5px;line-height:1.75;color:var(--ink-2);margin:0}
+  .lesson .price-note{font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--ink-2);margin-top:12px;font-size:16px}
+  .interest{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;align-items:center;justify-content:center}
+  .interest span{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);width:100%;text-align:center;margin-bottom:4px}
+  .interest .btn{flex-basis:100%;max-width:520px;margin-top:10px}
+
+  /* Label band */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:560px;margin:44px auto 0;text-align:center}
+  .stats .num{font-family:Newsreader,Georgia,serif;font-size:clamp(34px,5vw,52px);line-height:1}
+  .stats .lbl{font-size:11px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.6}
+  .label-copy{max-width:640px;margin:40px auto 0;text-align:center;font-size:16.5px;line-height:1.8;color:var(--ink-2)}
+  .endorse{padding:72px 22px 76px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+  @media(min-width:760px){.endorse{padding-left:36px;padding-right:36px}}
+  .endorse-label{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 28px}
+  /* Flex rows, centered, so the last row (Höfner alone) sits in the middle */
+  .endorse-list{list-style:none;margin:0 auto;padding:0;max-width:880px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px 24px}
+  .endorse-list li{flex:0 1 calc(50% - 12px)}
+  @media(min-width:760px){.endorse-list{gap:20px 32px}.endorse-list li{flex-basis:calc(33.333% - 22px)}}
+  @media(min-width:1020px){.endorse-list li{flex-basis:calc(25% - 24px)}}
+  .endorse-list li{font-family:Newsreader,Georgia,serif;font-size:17px;font-weight:400;line-height:1.35;color:var(--ink);padding:6px 4px}
+  .endorse-note{font-size:14px;line-height:1.6;color:var(--muted);margin:28px auto 0;max-width:52ch}
+
+  /* Contact: management, Sharkey-style, big and plain */
+  .contact{text-align:center;padding:110px 0}
+  .contact h2{font-size:clamp(42px,7vw,72px)}
+  .contact .mgmt{font-size:12px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;color:var(--muted);margin:36px 0 10px}
+  .contact .mgmt-name{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(22px,3.4vw,30px);margin:0}
+  .bigmail{display:inline-block;font-family:Newsreader,Georgia,serif;font-size:clamp(25px,5.2vw,48px);line-height:1.15;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:6px;margin-top:28px;word-break:break-all}
+  .bigmail:hover{color:var(--ink-2)}
+  .contact-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:40px}
+  .copied{font-family:Newsreader,Georgia,serif;font-style:italic;color:var(--muted);min-height:24px;margin-top:16px;font-size:16px}
+
+  footer{border-top:1px solid var(--line);padding:52px 0 44px;text-align:center}
+  .foot-name{font-family:Newsreader,Georgia,serif;font-size:19px;font-weight:500;letter-spacing:.22em;}
+  .foot-links{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;margin-top:22px;font-weight:500;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);}
+  .foot-links a{padding:10px 2px;text-decoration:none}
+  .foot-links a:hover{color:var(--ink)}
+  .fine{color:var(--ink-2);font-size:13.5px;line-height:1.7;margin-top:16px}
+  .reveal{opacity:1}
+  .reveal.pre{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.pre.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal.pre{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="bar">
+    <a class="brand" href="#top">Silktone</a>
+    <nav class="navlinks" aria-label="Main">
+      <a href="#top" data-nav="top">Home</a><a href="#latest" data-nav="latest">Music</a><a href="#news" data-nav="news">News</a><a href="#live" data-nav="live">Live</a><a href="#watch" data-nav="watch">Gallery</a><a href="#bio" data-nav="bio">Bio</a><a href="#credits" data-nav="credits">Credits</a><a href="#lessons" data-nav="lessons">Lessons</a><a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav">Menu <span class="menu-lines" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu">
+    <a href="#top" data-nav="top">Home</a>
+    <a href="#latest" data-nav="latest">Music</a>
+    <a href="#news" data-nav="news">News</a>
+    <a href="#live" data-nav="live">Live</a>
+    <a href="#watch" data-nav="watch">Gallery</a>
+    <a href="#bio" data-nav="bio">Bio</a>
+    <a href="#credits" data-nav="credits">Credits</a>
+    <a href="#lessons" data-nav="lessons">Lessons</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO: black coat portrait, full bleed. Wording over the photo, clear of his face: his name (the hero heading, Silktone is already in the header above), his roles, Los Angeles, and two buttons -->
+  <div class="hero">
+    <figure class="hero-photo">
+      <img fetchpriority="high" src="assets/joel-thomas-whitley-portrait.jpg" alt="Joel Thomas Whitley, portrait" />
+    </figure>
+    <div class="hero-copy">
+      <h1 class="hero-name">Joel Thomas Whitley</h1>
+      <p class="hero-roles"><span>Guitarist.</span> <span>Bassist.</span> <span>Songwriter.</span> <span>Producer.</span></p>
+      <p class="hero-loc">Los Angeles</p>
+      <div class="hero-ctas">
+        <a class="hero-btn solid" href="#latest">Latest recording</a>
+        <a class="hero-btn" href="#contact">Book a session</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LATEST RECORDING -->
+  <section id="latest" class="wrap reveal" style="padding-top:88px">
+    <div class="latest">
+      <div>
+        <img loading="lazy" decoding="async" src="assets/joel-whitley-in-a-white-sweater-eyes-closed-holding-his-gold.jpg" style="aspect-ratio:auto;height:auto" alt="Joel Whitley in a white sweater, eyes closed, holding his gold flake Saito guitar" />
+      </div>
+      <div>
+        <p class="outnow">Latest Recording</p>
+        <h2>Kelsey Lu, <em>So Help Me God</em></h2>
+        <p>Bass on Kelsey Lu’s <em>So Help Me God</em> (2026), including “Cutting Off The Head Of A Ghost”.</p>
+        <p>Guitar on NIIA’s <em>V</em> (2025) and on Kamasi Washington’s <em>Fearless Movement</em> (2024).</p>
+        <div class="ctas">
+          <a class="btn solid" href="#credits">Full credits</a>
+          <a class="btn" href="#live">Live &amp; booking</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="wrap reveal">
+    <div class="sec-head">
+      <p class="sec-label">Updates</p>
+      <h2>News</h2>
+    </div>
+    <div class="news-list">
+      <div class="nrow"><span class="nyear">2026</span><span class="nwhat">Kelsey Lu, <em>So Help Me God</em>, bass on “Cutting Off The Head Of A Ghost”</span></div>
+      <div class="nrow"><span class="nyear">2025</span><span class="nwhat">NIIA, <em>V</em>, guitar on “Dice” and the opening track</span></div>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section id="live" class="alt reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-label">On Stage</p>
+        <h2>Live</h2>
+        <p class="sec-sub">On stage and backstage, from the road.</p>
+      </div>
+      <div class="live-grid">
+        <figure>
+          <img loading="lazy" decoding="async" src="assets/joel-backstage-with-flea-on-tour-with-thundercat-opening-for.jpg" alt="Joel backstage with Flea, on tour with Thundercat opening for the Red Hot Chili Peppers" />
+          <figcaption>On tour with Thundercat opening for the Red Hot Chili Peppers, backstage with Flea.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" decoding="async" src="assets/joel-whitley-live-on-stage-in-europe-wearing-a-house-of-pain.jpg" alt="Joel Whitley live on stage in Europe, wearing a House of Pain T-shirt and playing a PRS Custom 24 guitar" />
+          <figcaption>PRS Custom 24.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" decoding="async" src="assets/joel-whitley-playing-bass-on-a-blue-lit-stage-in-serbia-on-t.jpg" alt="Joel Whitley playing bass on a blue-lit stage in Serbia, on tour with Everlast" />
+          <figcaption>Live on bass in Serbia, on tour with Everlast.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" decoding="async" src="assets/joel-whitley-playing-his-moollon-thinline-custom-with-trem.jpg" alt="Joel Whitley playing his Moollon Thinline custom with trem" />
+          <figcaption>Moollon Thinline custom with trem.</figcaption>
+        </figure>
+      </div>
+      <div class="dates">
+        <div class="drow">
+          <span class="when">Booking Open</span>
+          <span class="what">Sessions &amp; Touring</span>
+          <a class="status" href="mailto:silktonej@gmail.com?subject=Sessions%20%26%20touring%20inquiry">Inquire</a>
+          <span class="where">Studio sessions, tours and one-off shows, worldwide.</span>
+        </div>
+        <div class="drow">
+          <span class="when">Podcasts</span>
+          <span class="what">In Conversation</span>
+          <a class="status" href="mailto:silktonej@gmail.com?subject=Podcast%20inquiry">Inquire</a>
+          <span class="where">Conversations on musicianship, production, and building your own tools. Book Joel as a guest.</span>
+        </div>
+      </div>
+      <div class="letter">
+        <h3>The Silktone Letter</h3>
+        <p>Occasional updates on new sounds, lesson openings and show dates.</p>
+        <a class="btn accent" href="mailto:silktonej@gmail.com?subject=Silktone%20Letter%3A%20sign%20me%20up">Sign up by email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH -->
+  <section id="watch" class="wrap reveal">
+    <div class="sec-head">
+      <p class="sec-label">Photographs</p>
+      <h2>Gallery</h2>
+      <p class="sec-sub">Portraits, studio sessions, and the gear behind the sound.</p>
+    </div>
+    <div class="gallery-tabs" role="group" aria-label="Filter gallery by category">
+      <button class="chip gallery-chip" data-gallery="portraits" aria-pressed="true">Portraits</button>
+      <button class="chip gallery-chip" data-gallery="studio" aria-pressed="false">Studio</button>
+      <button class="chip gallery-chip" data-gallery="gear" aria-pressed="false">Gear</button>
+    </div>
+    <div class="watch-grid" id="galleryGrid">
+      <figure data-gallery-cat="studio" class="hide">
+        <img loading="lazy" decoding="async" src="assets/joel-whitley-s-guitars-on-stands-and-his-pedalboard-on-the-p.jpg" alt="Joel Whitley's guitars on stands and his pedalboard on the parquet floor of the Westlake live room" />
+        <figcaption>Guitars &amp; pedalboard<span>Westlake Recording Studios, November 2026. The live room, ready for the session.</span></figcaption>
+      </figure>
+      <figure data-gallery-cat="studio" class="hide">
+        <img loading="lazy" decoding="async" src="assets/the-live-room-at-westlake-recording-studios-during-a-session.jpg" alt="The live room at Westlake Recording Studios during a session, seen through the control-room glass, with percussion in the foreground" />
+        <figcaption>Through the glass<span>Westlake, November 2026. The live room, seen from the control room.</span></figcaption>
+      </figure>
+      <figure data-gallery-cat="gear" class="hide">
+        <img loading="lazy" decoding="async" src="assets/joel-whitley-s-pedalboard-from-above-on-the-westlake-studio-.jpg" alt="Joel Whitley's pedalboard from above on the Westlake studio floor, surrounded by cables and a patterned rug" />
+        <figcaption>The pedalboard<span>Westlake, November 2026. <strong>TONEX</strong>, Xotic, and Lovepedal, from above.</span></figcaption>
+      </figure>
+      <figure data-gallery-cat="gear" class="hide">
+        <img loading="lazy" decoding="async" src="assets/joel-whitley-s-lsl-custom-guitar-resting-in-the-westlake-liv.jpg" alt="Joel Whitley's LSL custom guitar resting in the Westlake live room, with other guitars and his pedalboard around it on the parquet floor" />
+        <figcaption>LSL custom guitar<span>Joel’s LSL custom guitar, resting between takes. Westlake, November 2026.</span></figcaption>
+      </figure>
+      <figure data-gallery-cat="gear" class="hide">
+        <img loading="lazy" decoding="async" src="assets/two-moollon-basses-on-stands-on-stage-a-sunburst-moollon-dou.jpg" alt="Two Moollon basses on stands on stage. A sunburst Moollon double PB on the left and a gold Moollon sparkle PB on the right" />
+        <figcaption>Moollon basses, on stage<span>On the left, a sunburst Moollon double PB; on the right, the gold Moollon sparkle PB.</span></figcaption>
+      </figure>
+      <figure data-gallery-cat="gear" class="hide">
+        <img loading="lazy" decoding="async" src="assets/close-up-of-a-pedalboard-with-ebs-octabass-and-unichorus-ped.jpg" alt="Close-up of a pedalboard with EBS OctaBass and UniChorus pedals, a Maxon pedal and a Foxrox Octron2" />
+        <figcaption>Pedalboard detail: EBS and Foxrox<span>EBS OctaBass and UniChorus, Maxon, and a Foxrox Octron2.</span></figcaption>
+      </figure>
+      <figure data-gallery-cat="gear" class="hide">
+        <img loading="lazy" decoding="async" src="assets/close-up-of-a-pedalboard-with-an-ebs-valve-drive-di-preamp-e.jpg" alt="Close-up of a pedalboard with an EBS Valve Drive DI preamp, EBS OctaBass and EBS UniChorus pedals" />
+        <figcaption>Pedalboard detail: EBS Valve Drive<span>EBS Valve Drive DI, OctaBass, and UniChorus.</span></figcaption>
+      </figure>
+      <figure data-gallery-cat="portraits">
+        <img loading="lazy" decoding="async" src="assets/joel-whitley-pictured-with-his-vt-guitar.jpg" alt="Joel Whitley pictured with his VT guitar" />
+        <figcaption>Joel with his VT.</figcaption>
+      </figure>
+      <figure data-gallery-cat="portraits">
+        <img loading="lazy" decoding="async" src="assets/joel-whitley-outdoors-under-trees-holding-his-sunburst-mooll.jpg" alt="Joel Whitley outdoors under trees, holding his sunburst Moollon double P bass" />
+        <figcaption>Sunburst chambered Moollon double PB.</figcaption>
+      </figure>
+      <figure data-gallery-cat="portraits">
+        <img class="crop-face-headstock" loading="lazy" decoding="async" src="assets/joel-whitley-in-a-black-leather-jacket-holding-his-gold-mool.jpg" alt="Joel Whitley in a black leather jacket holding his gold Moollon sparkle PB" />
+        <figcaption>Gold Moollon sparkle PB.</figcaption>
+      </figure>
+      <figure data-gallery-cat="gear" class="hide">
+        <img loading="lazy" decoding="async" src="assets/three-guitars-resting-on-and-beside-a-couch-with-pedalboards.jpg" alt="Three guitars resting on and beside a couch, with pedalboards on the floor in front: a gold Moollon sparkle PB, a McPherson 4.5, and an LSL custom Jazzmaster" />
+        <figcaption>Left to right: the gold Moollon sparkle PB, the McPherson 4.5, and the LSL custom Jazzmaster.</figcaption>
+      </figure>
+      <figure data-gallery-cat="gear" class="hide">
+        <img loading="lazy" decoding="async" src="assets/an-lsl-custom-guitar-resting-on-a-windowsill-overlooking-a-c.jpg" alt="An LSL custom guitar resting on a windowsill, overlooking a city below" />
+        <figcaption>LSL custom offset.</figcaption>
+      </figure>
+    </div>
+    <div class="center-cta">
+      <a class="btn solid" href="https://www.instagram.com/silktone" target="_blank" rel="noopener">Watch on Instagram ↗</a>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section id="bio" class="alt reveal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-label">Bio</p>
+        <h2>Joel Thomas Whitley</h2>
+      </div>
+      <div class="bio">
+        <div class="bio-panel">
+          <p>Joel Thomas Whitley (Silktone) is a Los Angeles multi-instrumentalist: guitarist, bassist, songwriter and producer. Guitar and bass are his first languages; writing and production are where he puts them to work.</p>
+          <p>He has toured with Stevie Wonder, Lauryn Hill, Natalie Cole, Thundercat, Everlast, House of Pain, Ebi, James Ingram, Ledisi, Mary Mary, Tonéx, Andraé Crouch, and Marsha Ambrosius. In the studio he has recorded and collaborated with Dr. Dre, Eminem, Prince, The Temptations, and Raphael Saadiq, among others, with guitar on Kamasi Washington’s <em>Fearless Movement</em> (2024), bass and guitar on Carly Rae Jepsen’s <em>Dedicated Side B</em> (2020), bass and co-writing on Eric Gales’ <em>Good for Sumthin’</em> (2014), guitar, bass and co-writing on Everlast’s <em>Songs of the Ungrateful Living</em> (2011), and writer on Eminem’s “Ridaz” from <em>Recovery</em> (2010).</p>
+          <p>His sound lives where R&amp;B, soul, funk, jazz, and pop meet, and his playing serves the song first. Alongside sessions and touring, he produces through his own company, Sounds Good Ent. LLC, builds his own instruments and software, and teaches guitarists the feel behind the notes.</p>
+          <dl class="glance">
+            <div><dt>Roles</dt><dd><strong>Guitarist · Bassist · Songwriter · Producer</strong>, session player and touring musician on guitar and bass</dd></div>
+            <div><dt>Company</dt><dd><strong>CEO, Sounds Good Ent. LLC</strong>, music &amp; entertainment, Los Angeles</dd></div>
+            <div><dt>Home Base</dt><dd>Los Angeles, California</dd></div>
+          </dl>
+        </div>
+        <figure>
+          <img loading="lazy" decoding="async" src="assets/joel-whitley-backstage-with-his-saito-jmc-about-to-take-the-.jpg" alt="Joel Whitley backstage with his Saito JMC, about to take the stage" />
+          <figcaption class="cap">About to take the stage with the Saito JMC.</figcaption>
+        </figure>
+      </div>
+
+      <div class="lineage" id="lineage">
+        <div class="sec-head" style="margin-bottom:0">
+          <p class="sec-label">Lineage</p>
+          <h2 style="font-size:clamp(32px,4.6vw,46px)">Studied with</h2>
+        </div>
+        <div class="lineage-grid">
+          <figure>
+            <img loading="lazy" decoding="async" src="assets/a-younger-joel-whitley-seated-beside-chalmers-spanky-alford-.jpg" alt="A younger Joel Whitley seated beside Chalmers “Spanky” Alford, who holds an archtop guitar" />
+            <figcaption class="cap">Joel with Chalmers “Spanky” Alford.</figcaption>
+          </figure>
+          <div class="bio-panel">
+            <div class="teacher">
+              <h3>Chalmers “Spanky” Alford</h3>
+              <p>Chalmers “Spanky” Alford was one of Joel’s mentors: “Spanky opened my ears and my approach to music. He was an amazing human being, and a wonderful mentor.”</p>
+            </div>
+            <div class="teacher">
+              <h3>Ted Greene</h3>
+              <p>Joel studied with Ted Greene: “He opened my mind to harmony and humanity.”</p>
+            </div>
+            <div class="teacher">
+              <h3>Scott Henderson</h3>
+              <p>Joel studied with Scott Henderson: “Scott was a major influence on finding your voice and being genuine, playing from the heart.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDITS -->
+  <section id="credits" class="wrap reveal">
+    <div class="sec-head">
+      <p class="sec-label">Selected Work</p>
+      <h2>Credits</h2>
+      <p class="sec-sub">Tours, records and writing.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter credits">
+      <button class="chip" data-filter="all" aria-pressed="true">All work</button>
+      <button class="chip" data-filter="record" aria-pressed="false">On record</button>
+      <button class="chip" data-filter="stage" aria-pressed="false">On stage</button>
+      <button class="chip" data-filter="writing" aria-pressed="false">Writing</button>
+    </div>
+    <div class="credits" id="creditList">
+      <div class="crow" data-cat="record"><span class="artist">Kelsey Lu</span><span class="work">So Help Me God, “Cutting Off The Head Of A Ghost”, bass</span><span class="year">2026</span></div>
+      <div class="crow" data-cat="record"><span class="artist">NIIA</span><span class="work">V, guitar on “Dice” and the opening track, credited in the album listing as “Joey Whitely”</span><span class="year">2025</span></div>
+      <div class="crow" data-cat="record"><span class="artist">Kamasi Washington</span><span class="work">Fearless Movement, guitar</span><span class="year">2024</span></div>
+      <div class="crow" data-cat="record"><span class="artist">Carly Rae Jepsen</span><span class="work">Dedicated Side B, bass / guitar</span><span class="year">2020</span></div>
+      <div class="crow" data-cat="record writing"><span class="artist">Eric Gales</span><span class="work">Good for Sumthin’, bass / co-writer</span><span class="year">2014</span></div>
+      <div class="crow" data-cat="record writing"><span class="artist">Everlast</span><span class="work">Songs of the Ungrateful Living, guitar / bass, co-writer on “Gone for Good” and “Even God Don’t Know”</span><span class="year">2011</span></div>
+      <div class="crow" data-cat="record writing"><span class="artist">Eminem</span><span class="work"><em>Recovery</em>, writer on “Ridaz”</span><span class="year">2010</span></div>
+      <div class="crow" data-cat="record"><span class="artist">Chaz Shepherd</span><span class="work">Love and Truth, co-producer</span><span class="year">2010</span></div>
+      <div class="crow" data-cat="record"><span class="artist">Musiq Soulchild</span><span class="work">“So Beautiful”, OnMyRadio, guitar</span><span class="year">2008</span></div>
+      <div class="crow" data-cat="record"><span class="artist">The Temptations</span><span class="work">Awesome, guitar</span><span class="year">2001</span></div>
+      <div class="crow crow-touring" data-cat="stage"><span class="artist">Toured with</span><span class="work">Stevie Wonder, Lauryn Hill, Natalie Cole, Thundercat, Everlast, House of Pain, Ebi, James Ingram, Ledisi, Mary Mary, Tonéx, Andraé Crouch and Marsha Ambrosius</span><span class="year">Live</span></div>
+      <div class="crow" data-cat="stage"><span class="artist">Brandy Norwood</span><span class="work">Performance</span><span class="year">Live</span></div>
+      <div class="crow" data-cat="record writing"><span class="artist">Judith Hill</span><span class="work">Co-writer on “Cry, Cry, Cry” (Back in Time) and “Burn It All” (Baby, I’m Hollywood!); producer and engineer on “Day or Night” (Red Hook Summer soundtrack)</span><span class="year">2012 · 2015 · 2021</span></div>
+      <div class="crow" data-cat="record"><span class="artist">Macy Gray</span><span class="work">Sessions, bass</span><span class="year">2014</span></div>
+      <div class="crow" data-cat="record writing"><span class="artist">Kimbra</span><span class="work">“Madhouse”, <em>The Golden Echo</em>, co-writer</span><span class="year">2014</span></div>
+    </div>
+    <p class="credits-note">Full discography on request for booking and session inquiries.</p>
+  </section>
+
+  <!-- LESSONS -->
+  <section id="lessons" class="wrap reveal">
+    <div class="sec-head">
+      <p class="sec-label">Lessons</p>
+      <h2>Learn feel, <em>not just notes</em></h2>
+      <p class="sec-sub">Joel teaches the way he plays: pocket, tone, listening, and how a guitar part earns its place in a song, built on decades of tours, studios, and stages.</p>
+    </div>
+    <div class="lessons-grid">
+      <div class="lesson"><h3>Virtual Guitar Lessons</h3><p>One-to-one lessons online. R&amp;B, soul, funk, and jazz feel, chord voicings, rhythm playing, and the touch that makes a part sit in the track.</p><p class="price-note">Available now. Ask for times.</p></div>
+      <div class="lesson"><h3>Mentorship &amp; Course</h3><p>A recorded guitar mentorship with live Q&amp;A. Joel’s approach to feel, session work, songwriting, and building a career, lesson by lesson, in your own time.</p><p class="price-note">In the making. Join the interest list.</p></div>
+      <div class="lesson"><h3>For Working &amp; Community Players</h3><p>For gigging, session, and community guitarists who want timeless feel, serving the song, the band, and the room.</p><p class="price-note">Groups welcome. Just ask.</p></div>
+    </div>
+    <div class="interest" role="group" aria-label="Choose what you are interested in">
+      <span>I’m interested in</span>
+      <button class="chip lesson-chip" data-interest="Virtual guitar lessons" data-cta="Email Joel about virtual lessons" aria-pressed="true">Virtual lessons</button>
+      <button class="chip lesson-chip" data-interest="Guitar mentorship course" data-cta="Email Joel about the mentorship course" aria-pressed="false">Mentorship course</button>
+      <button class="chip lesson-chip" data-interest="Booking Joel for a session or tour" data-cta="Email Joel about booking" aria-pressed="false">Booking Joel</button>
+      <a class="btn accent" id="interestCta" href="mailto:silktonej@gmail.com?subject=Virtual%20guitar%20lessons%20with%20Joel%20Whitley">Email Joel about virtual lessons</a>
+    </div>
+  </section>
+
+  <!-- SOUNDS GOOD ENT. -->
+  <section id="label" class="alt reveal" style="padding:84px 0">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="sec-label">The Label</p>
+        <h2 style="font-size:clamp(32px,4.6vw,46px)">Sounds Good Ent.</h2>
+      </div>
+      <div class="stats">
+        <div><div class="num">2020</div><div class="lbl">Founded</div></div>
+        <div><div class="num">Los Angeles</div><div class="lbl">Home Base</div></div>
+      </div>
+      <p class="label-copy">Sounds Good Ent. is Joel’s Los Angeles label and home base for production and teaching. Alongside touring and sessions, Joel mentors younger musicians and teaches players in the community.</p>
+    </div>
+  </section>
+
+  <div class="endorse wrap">
+    <p class="endorse-label">Endorsements</p>
+    <ul class="endorse-list">
+      <li>Moollon</li>
+      <li>Saito Guitars</li>
+      <li>LSL Guitars</li>
+      <li>Strandberg Guitars</li>
+      <li>McPherson Guitars</li>
+      <li>Lollar Pickups</li>
+      <li>Mayones</li>
+      <li>Performance Guitars</li>
+      <li>EBS</li>
+      <li>Bad Cat Amps</li>
+      <li>IK Multimedia</li>
+      <li>Neural DSP</li>
+      <li>PRS Guitars</li>
+      <li>Universal Audio</li>
+      <li>Seymour Duncan</li>
+      <li>Lewitt</li>
+      <li>Höfner</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact wrap reveal">
+    <p class="sec-label">Contact</p>
+    <h2>Book Joel</h2>
+    <p class="mgmt">Management</p>
+    <p class="mgmt-name">Sounds Good Ent. LLC, Los Angeles</p>
+    <a class="bigmail" href="mailto:silktonej@gmail.com">silktonej@gmail.com</a>
+    <div class="contact-row">
+      <button class="btn" id="copyBtn" type="button">Copy email</button>
+      <a class="btn" href="https://www.instagram.com/silktone" target="_blank" rel="noopener">Instagram @silktone ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/joel-whitley-673326284" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <p class="copied" id="copyMsg" role="status" aria-live="polite"></p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-name">Silktone</div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="#top">Home</a><a href="#latest">Music</a><a href="#news">News</a><a href="#live">Live</a><a href="#watch">Gallery</a><a href="#bio">Bio</a><a href="#credits">Credits</a><a href="#lessons">Lessons</a><a href="#contact">Contact</a>
+  </nav>
+  <p class="fine">
+    Official website of Joel Thomas Whitley (Silktone).<br/>
+    <strong>silktoneofficial.com</strong>. Also at joelwhitleymusic.com.<br/>
+    Sounds Good Ent. LLC · Los Angeles, California · © 2026 Joel Thomas Whitley
+  </p>
+</footer>
+
+<script>
+(function(){
+  // Header: transparent over hero, solid after scrolling
+  var header=document.getElementById('siteHeader');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY>window.innerHeight*0.72); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // Menu button (small screens): toggles the drop-down panel under the bar
+  var menuBtn=document.getElementById('menuBtn');
+  function closeMenu(){ header.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click',function(){
+    var open=header.classList.toggle('menu-open');
+    menuBtn.setAttribute('aria-expanded', open?'true':'false');
+  });
+  document.querySelectorAll('.mobile-nav a').forEach(function(a){ a.addEventListener('click',closeMenu); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>=1020) closeMenu(); });
+
+  // Underline the menu link for the section in view, the way Sharkey's top menu marks the current page
+  var navMap={};
+  document.querySelectorAll('[data-nav]').forEach(function(a){ var k=a.getAttribute('data-nav'); (navMap[k]=navMap[k]||[]).push(a); });
+  function setActive(id){ Object.keys(navMap).forEach(function(k){ navMap[k].forEach(function(a){ a.classList.toggle('active',k===id); }); }); }
+  setActive('top');
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    ['latest','news','live','watch','bio','credits','lessons','contact'].forEach(function(id){ var s=document.getElementById(id); if(s) spy.observe(s); });
+  }
+
+  // Credits filter
+  document.querySelectorAll('[data-filter]').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      document.querySelectorAll('[data-filter]').forEach(function(c){c.setAttribute('aria-pressed','false')});
+      chip.setAttribute('aria-pressed','true');
+      var f=chip.getAttribute('data-filter');
+      document.querySelectorAll('#creditList .crow').forEach(function(row){
+        var show = f==='all' || (row.getAttribute('data-cat')||'').split(' ').indexOf(f)>-1;
+        row.classList.toggle('hide',!show);
+      });
+    });
+  });
+
+  // Gallery tabs: one category at a time
+  document.querySelectorAll('.gallery-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      document.querySelectorAll('.gallery-chip').forEach(function(c){c.setAttribute('aria-pressed','false')});
+      chip.setAttribute('aria-pressed','true');
+      var cat=chip.getAttribute('data-gallery');
+      document.querySelectorAll('#galleryGrid figure').forEach(function(fig){
+        fig.classList.toggle('hide', fig.getAttribute('data-gallery-cat')!==cat);
+      });
+    });
+  });
+
+  // Lesson interest -> mailto: the button wording and subject follow the chosen option
+  var cta=document.getElementById('interestCta');
+  document.querySelectorAll('.lesson-chip').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      document.querySelectorAll('.lesson-chip').forEach(function(c){c.setAttribute('aria-pressed','false')});
+      chip.setAttribute('aria-pressed','true');
+      var interest=chip.getAttribute('data-interest');
+      cta.href='mailto:silktonej@gmail.com?subject='+encodeURIComponent(interest+': Silktone');
+      cta.textContent=chip.getAttribute('data-cta');
+    });
+  });
+
+  // Copy email
+  var copyBtn=document.getElementById('copyBtn'), msg=document.getElementById('copyMsg');
+  copyBtn.addEventListener('click',function(){
+    var email='silktonej@gmail.com';
+    function done(){ msg.textContent='Copied: silktonej@gmail.com. Talk soon.'; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(email).then(done).catch(function(){ msg.textContent=email; }); }
+    else { msg.textContent=email; }
+  });
+
+  // Reveal
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.02});
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('pre'); io.observe(el); });
+    setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); },1200);
+  } else { document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
+})();
+</script>
+</body>
+</html>
